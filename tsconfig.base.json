@@ -14,8 +14,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
+    "strictPropertyInitialization": false,
     "paths": {
-      "@crossfit/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@crossfit/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@crossfit/core-data": ["libs/core-data/src/index.ts"],
+      "@crossfit/core-state": ["libs/core-state/src/index.ts"],
+      "@crossfit/material": ["libs/material/src/index.ts"],
+      "@crossfit/theme": ["libs/theme/src/index.ts"],
+      "@crossfit/ui-library": ["libs/ui-library/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

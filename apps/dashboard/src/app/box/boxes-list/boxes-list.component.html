@@ -1,0 +1,28 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> <h1>Select a Box</h1> </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item
+        *ngFor="let box of boxes"
+        (click)="selected.emit(box)"
+        class="mat-list-item"
+      >
+        <h1 matLine>{{ box.name }}</h1>
+        <button
+          mat-icon-button
+          (click)="deleted.emit(box); $event.stopImmediatePropagation()"
+        >
+          <mat-icon *ngIf="!readonly">delete</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          (click)="viewedBox.emit(box.id); $event.stopImmediatePropagation()"
+        >
+          <mat-icon *ngIf="!readonly">more_vert</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

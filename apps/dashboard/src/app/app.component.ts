@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Message } from '@crossfit/api-interfaces';
 
 @Component({
   selector: 'crossfit-root',
@@ -8,6 +6,9 @@ import { Message } from '@crossfit/api-interfaces';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
+  title = 'Crossfit-Application';
+  links = [
+    { path: '/', icon: 'home', title: 'Login' },
+    { path: 'box', icon: 'view_list', title: 'Crossfit Boxes' },
+  ];
 }

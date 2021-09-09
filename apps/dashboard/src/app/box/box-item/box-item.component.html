@@ -1,0 +1,7 @@
+<div class="info-container container">
+  <div class="col-50" layout="row" layout-align="center center">
+    <div *ngIf="currentBox$ | async as box">
+      <crossfit-box-info [box]="currentBox$ | async"></crossfit-box-info>
+    </div>
+  </div>
+</div>

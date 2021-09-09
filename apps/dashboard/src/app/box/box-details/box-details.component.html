@@ -1,0 +1,68 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title *ngIf="currentBox.id; else submitNew">
+      <h1>Update {{ originalName }}</h1>
+    </mat-card-title>
+    <ng-template #submitNew>
+      <h1>Submit a New Box</h1>
+    </ng-template>
+  </mat-card-header>
+  <form
+    [formGroup]="form"
+    #formDirective="ngForm"
+    (ngSubmit)="saveForm(formDirective)"
+  >
+    <mat-card-content>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          placeholder="Name"
+          formControlName="name"
+          type="text"
+          name="name"
+        />
+        <mat-error *ngIf="form.get('name')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Owner</mat-label>
+        <input
+          matInput
+          placeholder="Owner"
+          formControlName="owner"
+          type="text"
+          name="owner"
+        />
+        <mat-error *ngIf="form.get('owner')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Facts</mat-label>
+        <input
+          matInput
+          placeholder="Facts"
+          formControlName="quickFact"
+          type="text"
+          name="quickFact"
+        />
+        <mat-error *ngIf="form.get('quickFact')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Number of Members</mat-label>
+        <input
+          matInput
+          placeholder="Number of Members"
+          formControlName="memberAmount"
+          type="number"
+          name="memberAmount"
+        />
+        <mat-error *ngIf="form.get('memberAmount')">Required Field</mat-error>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="submit" mat-button [disabled]="form.invalid">
+        {{ currentBox.id ? 'Update' : 'Submit' }}
+      </button>
+      <button type="button" mat-button (click)="cancel()">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card>
